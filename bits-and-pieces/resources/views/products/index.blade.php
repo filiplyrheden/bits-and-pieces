@@ -1,9 +1,15 @@
 <x-layout>
 
-    <ul>
-        <li>Product 1</li>
-        <li>Product 2</li>
-        <li>Product 3</li>
-    </ul>
+    <h1>Products</h1>
 
+    <a href="{{ route('products.create') }}">New product</a>
+
+    @foreach ($products as $product)
+
+    <h2><a href="">Product name</a></h2>
+    <p>Description</p>
+
+    @endforeach
+
+    {{ $products->links('vendor/pagination/simple-default') }}
 </x-layout>

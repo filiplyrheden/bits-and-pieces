@@ -14,7 +14,7 @@ return new class extends Migration
     {
         Schema::dropIfExists('product');
 
-        Schema::create('product', function (Blueprint $table) {
+        Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->text('description');
@@ -30,7 +30,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('product');
+        Schema::dropIfExists('products');
 
         Schema::create('product', function (Blueprint $table) {
             $table->id();

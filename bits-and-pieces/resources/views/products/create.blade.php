@@ -5,7 +5,7 @@
     <x-errors />
 
     <form method="post" action="{{ route('products.store') }}">
-        <x-products.form />
+        <x-products.form :consoles="$consoles" />
     </form>
 
 </x-layout>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Requests\SaveProductRequest;
+use App\Models\Console;
 
 class ProductController extends Controller
 {
@@ -23,7 +24,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('products.create');
+        $consoles = Console::all(); // Fetch all consoles to populate the dropdown
+        return view('products.create', compact('consoles'));
     }
 
     public function store(SaveProductRequest $request)
@@ -42,7 +44,8 @@ class ProductController extends Controller
 
     public function edit(Product $product)
     {
-        return view('products.edit', compact('product'));
+        $consoles = Console::all(); // Fetch all consoles from the database
+        return view('products.edit', compact('product', 'consoles'));
     }
 
     public function update(SaveProductRequest $request, Product $product)

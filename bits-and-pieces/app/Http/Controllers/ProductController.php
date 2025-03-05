@@ -12,11 +12,23 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('products.index', [
-            'products' => Product::paginate(3)
-        ]);
+        $allowedSorts = ['name', 'price', 'created_at']; // Columns allowed to be sorted by
+        $sort = $request->query('sort', 'id');   // Default to 'created_at'
+        $direction = $request->query('direction', 'desc'); // Default to 'desc'
+
+        // Validate sorting inputs
+        if (!in_array($sort, $allowedSorts)) {
+            $sort = 'id';
+        }
+        if (!in_array($direction, ['asc', 'desc'])) {
+            $direction = 'desc';
+        }
+
+        $products = Product::orderBy($sort, $direction)->paginate(5);
+
+        return view('products.index', compact('products', 'sort', 'direction'));
     }
 
     /**

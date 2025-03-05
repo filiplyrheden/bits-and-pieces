@@ -14,9 +14,18 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        $consoles = Console::all();
+        $allConsoles = Console::all();
 
         $colors = Product::select('colour')->distinct()->pluck('colour');
+
+        $manufacturers = $allConsoles->pluck('manufacturer')->unique();
+
+        if ($request->filled('manufacturer')) {
+            $platforms = $allConsoles->where('manufacturer', $request->manufacturer)
+                ->pluck('platform')->unique();
+        } else {
+            $platforms = $allConsoles->pluck('platform')->unique();
+        }
 
         $query = Product::query();
 
@@ -52,7 +61,13 @@ class ProductController extends Controller
 
         $products = $query->paginate(5)->withQueryString();
 
-        return view('products.index', compact('products', 'consoles', 'colors'));
+        return view('products.index', compact(
+            'products',
+            'allConsoles',
+            'colors',
+            'manufacturers',
+            'platforms'
+        ));
     }
 
     /**

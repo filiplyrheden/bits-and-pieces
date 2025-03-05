@@ -52,7 +52,7 @@
                 <label for="manufacturer">Manufacturer:</label>
                 <select name="manufacturer" id="manufacturer" onchange="this.form.submit()">
                     <option value="">All</option>
-                    @foreach($consoles->pluck('manufacturer')->unique() as $manufacturer)
+                    @foreach($manufacturers as $manufacturer)
                     <option value="{{ $manufacturer }}" {{ request('manufacturer') === $manufacturer ? 'selected' : '' }}>
                         {{ $manufacturer }}
                     </option>
@@ -60,11 +60,12 @@
                 </select>
             </div>
 
+            <!-- Platform Filter -->
             <div class="filter">
                 <label for="platform">Platform:</label>
                 <select name="platform" id="platform" onchange="this.form.submit()">
                     <option value="">All</option>
-                    @foreach($consoles->pluck('platform')->unique() as $platform)
+                    @foreach($platforms as $platform)
                     <option value="{{ $platform }}" {{ request('platform') === $platform ? 'selected' : '' }}>
                         {{ $platform }}
                     </option>

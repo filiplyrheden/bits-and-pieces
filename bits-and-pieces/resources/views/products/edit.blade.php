@@ -5,6 +5,7 @@
     <x-errors />
 
     <form method="post" action="{{ route('products.update', $product) }}">
+        @csrf
         @method('PATCH')
 
         <x-products.form :consoles="$consoles" :product="$product" />

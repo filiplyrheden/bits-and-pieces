@@ -1,6 +1,7 @@
 <x-layout>
 
     <h1>{{ $product->name }}</h1>
+
     <p>{{ $product->description }}</p>
 
     <a href="{{ route('products.edit', $product) }}">Edit</a>

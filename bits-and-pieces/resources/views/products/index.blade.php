@@ -4,14 +4,24 @@
 
     <a href="{{ route('products.create') }}">New product</a>
 
-    <br> <br>
+    <br><br>
 
-    <div>
-        <a href="{{ request()->fullUrlWithQuery(['sort' => 'name', 'direction' => 'asc']) }}">Sort by Name (A-Z)</a> |
-        <a href="{{ request()->fullUrlWithQuery(['sort' => 'name', 'direction' => 'desc']) }}">Sort by Name (Z-A)</a> |
-        <a href="{{ request()->fullUrlWithQuery(['sort' => 'price', 'direction' => 'asc']) }}">Sort by Price (Low to High)</a> |
-        <a href="{{ request()->fullUrlWithQuery(['sort' => 'price', 'direction' => 'desc']) }}">Sort by Price (High to Low)</a>
-    </div>
+    <form method="GET" action="{{ url()->current() }}">
+        <label for="sort">Sort by:</label>
+        <select name="sort" id="sort" onchange="this.form.submit()">
+            <option value="">-- Select sorting --</option>
+            <option value="name|asc" {{ request('sort') === 'name' && request('direction') === 'asc' ? 'selected' : '' }}>Name (A-Z)</option>
+            <option value="name|desc" {{ request('sort') === 'name' && request('direction') === 'desc' ? 'selected' : '' }}>Name (Z-A)</option>
+            <option value="price|asc" {{ request('sort') === 'price' && request('direction') === 'asc' ? 'selected' : '' }}>Price (Low to High)</option>
+            <option value="price|desc" {{ request('sort') === 'price' && request('direction') === 'desc' ? 'selected' : '' }}>Price (High to Low)</option>
+        </select>
+
+        <!-- Keep any other query parameters like search filters or pagination -->
+        @foreach(request()->except(['sort', 'direction', 'page']) as $key => $value)
+        <input type="hidden" name="{{ $key }}" value="{{ $value }}">
+        @endforeach
+
+    </form>
 
     @foreach ($products as $product)
 
@@ -21,4 +31,5 @@
     @endforeach
 
     {{ $products->links('vendor/pagination/simple-default') }}
+
 </x-layout>

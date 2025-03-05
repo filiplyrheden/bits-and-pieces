@@ -14,9 +14,12 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        $allowedSorts = ['name', 'price', 'created_at']; // Columns allowed to be sorted by
-        $sort = $request->query('sort', 'id');   // Default to 'created_at'
-        $direction = $request->query('direction', 'desc'); // Default to 'desc'
+        $allowedSorts = ['name', 'price', 'color', 'connection', 'id']; // Make sure 'id' is allowed if used as default
+
+        // Handle combined `sort` parameter (e.g., "name|asc")
+        $sortParam = $request->query('sort', 'id|desc'); // Default to 'id|desc'
+
+        [$sort, $direction] = explode('|', $sortParam . '|desc'); // Fallback in case only 'sort' is provided
 
         // Validate sorting inputs
         if (!in_array($sort, $allowedSorts)) {

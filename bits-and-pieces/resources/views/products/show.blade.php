@@ -1,11 +1,11 @@
 <x-layout>
 
-    <h1>Product name</h1>
-    <p>Description</p>
+    <h1>{{ $product->name }}</h1>
+    <p>{{ $product->desciption }}</p>
 
-    <a href="">Edit</a>
+    <a href="{{ 'products.edit', $product->id }}">Edit</a>
 
-    <form method="post" action="">
+    <form method="post" action="{{ route('products.destroy', $product) }}">
         @csrf
         @method('DELETE')
 

@@ -6,8 +6,8 @@
 
     @foreach ($products as $product)
 
-    <h2><a href="">Product name</a></h2>
-    <p>Description</p>
+    <h2><a href="">{{ $product->name }}</a></h2>
+    <p>{{ $product->description }}</p>
 
     @endforeach
 

@@ -4,8 +4,10 @@
 
     <x-errors />
 
-    <form method="post" action="">
+    <form method="post" action="{{ route('products.update', $product) }}">
         @method('PATCH')
-    </form>
 
+        <x-products.form :consoles="$consoles" :product="$product" />
+
+    </form>
 </x-layout>

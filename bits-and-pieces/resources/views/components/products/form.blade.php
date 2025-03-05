@@ -9,6 +9,9 @@
 <label for="description">Description</label>
 <textarea type="text" name="description" id="description" value="{{ old('description', $product->description ?? '') }}"></textarea>
 
+<label for="color">Color</label>
+<input type="text" name="color" id="color" value="{{ old('color', $product->color ?? '') }}">
+
 <label for="connection">Connection</label>
 <select id="connection" name="connection" value="{{ old('connection', $product->connection ?? '') }}">
     <option value="wireless">Wireless</option>

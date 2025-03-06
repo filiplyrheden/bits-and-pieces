@@ -6,9 +6,11 @@
     <p>Connection: {{ $product->connection }}</p>
     <p>Price: {{ $product->price }}</p>
 
-    <form method="post" action="{{ route('products.edit', $product) }}">
-        <button>Edit</button>
-    </form>
+    <br> <br>
+
+    <a href="{{ route('products.edit', $product) }}">Edit</a>
+
+    <br> <br>
 
     <form method="post" action="{{ route('products.destroy', $product) }}">
         @csrf

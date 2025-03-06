@@ -13,6 +13,7 @@ class Product extends Model
         'name',
         'console_id',
         'description',
+        'color',
         'connection',
         'price'
     ];

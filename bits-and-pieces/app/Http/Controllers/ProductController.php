@@ -16,7 +16,7 @@ class ProductController extends Controller
     {
         $allConsoles = Console::all();
 
-        $colors = Product::select('colour')->distinct()->pluck('colour');
+        $colors = Product::select('color')->distinct()->pluck('color');
 
         $manufacturers = $allConsoles->pluck('manufacturer')->unique();
 
@@ -46,7 +46,7 @@ class ProductController extends Controller
         }
 
         if ($request->filled('color')) {
-            $query->where('colour', $request->color);
+            $query->where('color', $request->color);
         }
 
         if ($request->filled('sort_name')) {

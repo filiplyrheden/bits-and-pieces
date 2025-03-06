@@ -60,7 +60,6 @@
                 </select>
             </div>
 
-            <!-- Platform Filter -->
             <div class="filter">
                 <label for="platform">Platform:</label>
                 <select name="platform" id="platform" onchange="this.form.submit()">

@@ -4,8 +4,11 @@
 
     <x-errors />
 
-    <form method="post" action="">
+    <form method="post" action="{{ route('products.update', $product) }}">
+        @csrf
         @method('PATCH')
+
+        <x-products.form :product="$product" :consoles="$consoles" />
     </form>
 
 </x-layout>

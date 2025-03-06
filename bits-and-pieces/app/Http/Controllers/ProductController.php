@@ -89,7 +89,9 @@ class ProductController extends Controller
 
     public function show(Product $product)
     {
-        return view('products.show', compact('product'));
+        $consoles = Console::all();
+
+        return view('products.show', compact('product', 'consoles'));
     }
 
     public function edit(Product $product)

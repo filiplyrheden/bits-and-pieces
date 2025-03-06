@@ -18,7 +18,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('description');
-            $table->string('colour');
+            $table->string('color')->default('unknown');
             $table->string('connection');
             $table->decimal('price', 5, 2);
             $table->foreignIdFor(Console::class);
@@ -36,7 +36,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('description');
-            $table->string('colour');
+            $table->string('color');
             $table->string('connection');
             $table->decimal('price', 5, 2);
         });

@@ -1,3 +1,5 @@
-<x-layout :product="$product" :consoles="$consoles">
-    <x-products.show :product="$product" :consoles="$consoles" />
+<x-layout>
+
+    <x-products.show :consoles="$consoles" :product="$product" />
+
 </x-layout>

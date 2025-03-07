@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Console;
 use Illuminate\Http\Request;
 use App\Http\Requests\SaveProductRequest;
-use App\Models\Console;
 
 class ProductController extends Controller
 {
@@ -14,24 +14,60 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        $allowedSorts = ['name', 'price', 'color', 'connection', 'id']; // Make sure 'id' is allowed if used as default
+        $allConsoles = Console::all();
 
-        // Handle combined `sort` parameter (e.g., "name|asc")
-        $sortParam = $request->query('sort', 'id|desc'); // Default to 'id|desc'
+        $colors = Product::select('color')->distinct()->pluck('color');
 
-        [$sort, $direction] = explode('|', $sortParam . '|desc'); // Fallback in case only 'sort' is provided
+        $manufacturers = $allConsoles->pluck('manufacturer')->unique();
 
-        // Validate sorting inputs
-        if (!in_array($sort, $allowedSorts)) {
-            $sort = 'id';
-        }
-        if (!in_array($direction, ['asc', 'desc'])) {
-            $direction = 'desc';
+        if ($request->filled('manufacturer')) {
+            $platforms = $allConsoles->where('manufacturer', $request->manufacturer)
+                ->pluck('platform')->unique();
+        } else {
+            $platforms = $allConsoles->pluck('platform')->unique();
         }
 
-        $products = Product::orderBy($sort, $direction)->paginate(5);
+        $query = Product::query();
 
-        return view('products.index', compact('products', 'sort', 'direction'));
+        if ($request->filled('manufacturer')) {
+            $query->whereHas('console', function ($q) use ($request) {
+                $q->where('manufacturer', $request->manufacturer);
+            });
+        }
+
+        if ($request->filled('platform')) {
+            $query->whereHas('console', function ($q) use ($request) {
+                $q->where('platform', $request->platform);
+            });
+        }
+
+        if ($request->filled('connection')) {
+            $query->where('connection', $request->connection);
+        }
+
+        if ($request->filled('color')) {
+            $query->where('color', $request->color);
+        }
+
+        if ($request->filled('sort_name')) {
+            [$sort, $direction] = explode('|', $request->sort_name);
+            $query->orderBy($sort, $direction);
+        } elseif ($request->filled('sort_price')) {
+            [$sort, $direction] = explode('|', $request->sort_price);
+            $query->orderBy($sort, $direction);
+        } else {
+            $query->orderBy('id', 'desc');
+        }
+
+        $products = $query->paginate(5)->withQueryString();
+
+        return view('products.index', compact(
+            'products',
+            'allConsoles',
+            'colors',
+            'manufacturers',
+            'platforms'
+        ));
     }
 
     /**
@@ -39,13 +75,12 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $consoles = Console::all(); // Fetch all consoles to populate the dropdown
+        $consoles = Console::all();
         return view('products.create', compact('consoles'));
     }
 
     public function store(SaveProductRequest $request)
     {
-
         $product = Product::create($request->validated());
 
         return redirect()->route('products.show', $product)
@@ -61,7 +96,7 @@ class ProductController extends Controller
 
     public function edit(Product $product)
     {
-        $consoles = Console::all(); // Fetch all consoles from the database
+        $consoles = Console::all();
         return view('products.edit', compact('product', 'consoles'));
     }
 

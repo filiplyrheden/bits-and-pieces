@@ -8,7 +8,7 @@
         @csrf
         @method('PATCH')
 
-        <x-products.form :product="$product" :consoles="$consoles" />
-    </form>
+        <x-products.form :consoles="$consoles" :product="$product" />
 
+    </form>
 </x-layout>

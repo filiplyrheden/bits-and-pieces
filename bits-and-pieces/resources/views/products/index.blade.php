@@ -109,4 +109,7 @@
     @else
     <p>No products found matching your criteria.</p>
     @endif
+
+    <a href="/logout">Logout</a>
+
 </x-layout>

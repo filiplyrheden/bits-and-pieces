@@ -12,9 +12,12 @@
 
     <br> <br>
 
+    @if(auth()->user() && auth()->user()->isAdmin())
     <form method="post" action="{{ route('products.destroy', $product) }}">
         @csrf
         @method('DELETE')
         <button>Delete</button>
     </form>
+    @endif
+
 </div>

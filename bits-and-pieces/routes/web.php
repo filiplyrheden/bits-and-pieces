@@ -2,14 +2,21 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LogoutController;
 
-Route::view('/', 'home');
+
+Route::get('/', function () {
+    return view('auth.login');
+})->name('login');
+
+Route::post('/login', LoginController::class);
 
 Route::controller(ProductController::class)
     ->prefix('products')
     ->name('products.')
+    ->middleware('auth')
     ->group(function () {
-
         Route::get('/', 'index')
             ->name('index');
 
@@ -31,3 +38,5 @@ Route::controller(ProductController::class)
         Route::delete('/{product}', 'destroy')
             ->name('destroy');
     });
+
+Route::get('/logout', [App\Http\Controllers\LogoutController::class, '__invoke'])->middleware('auth');

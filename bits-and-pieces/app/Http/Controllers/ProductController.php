@@ -6,6 +6,8 @@ use App\Models\Product;
 use App\Models\Console;
 use Illuminate\Http\Request;
 use App\Http\Requests\SaveProductRequest;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class ProductController extends Controller
 {
@@ -110,9 +112,12 @@ class ProductController extends Controller
 
     public function destroy(Product $product)
     {
-        $product->delete();
+        $user = Auth::user();
+        if (!$user || !$user instanceof User || !$user->isAdmin()) {
+            return redirect()->route('products.index')->with('error', 'Unauthorized action.');
+        }
 
-        return redirect()->route('products.index')
-            ->with('status', 'Product deleted.');
+        $product->delete();
+        return redirect()->route('products.index')->with('status', 'Product deleted.');
     }
 }

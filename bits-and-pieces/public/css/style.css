@@ -219,3 +219,75 @@
   .products-wrapper {
     margin-top: 20px;
   }
+
+  /* Form Container */
+.form-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Form Group */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+/* Labels */
+.form-group label {
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 5px;
+}
+
+/* Inputs & Selects */
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 10px;
+    border: 1px solid #D1D5DB;
+    border-radius: var(--border-radius);
+    background-color: white;
+    font-family: var(--font-main);
+    color: var(--dark);
+    width: 500px;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+    transition: border-color 0.2s ease-in-out;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(85, 85, 255, 0.25);
+}
+
+/* Textarea */
+.form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* Primary Button */
+.btn-primary {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: var(--primary);
+    color: white;
+    font-weight: 600;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    text-align: center;
+    width: 200px;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+}

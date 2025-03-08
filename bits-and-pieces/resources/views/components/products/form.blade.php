@@ -41,5 +41,5 @@
         <input type="text" name="price" id="price" value="{{ old('price', $product->price ?? '') }}">
     </div>
 
-    <button class="btn-primary">Save:</button>
+    <button class="btn-primary">Save</button>
 </form>

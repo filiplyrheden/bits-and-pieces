@@ -1,4 +1,5 @@
 <x-layout>
+    <x-logo />
     <h1>Products</h1>
     <a href="{{ route('products.create') }}">New product</a>
     <br><br>

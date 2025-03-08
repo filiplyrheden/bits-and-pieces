@@ -1,8 +1,8 @@
 /* Retro Game Controllers Admin Theme */
 :root {
-    --primary: #0B62F5;
-    --primary-dark: #052458;    
-    --secondary: #F59E0B;     
+    --primary: #5555FF;
+    --primary-dark: #313197;    
+    --secondary: #FF5555;     
     --light: #F3F4F6;       
     --dark: #1F2937;           
     --success: #10B981;    
@@ -10,7 +10,7 @@
     --border-radius: 4px;       
     --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     --font-main: 'Segoe UI', 'Roboto', sans-serif;
-    --font-heading: 'Press Start 2P', 'Courier New', monospace;
+    --font-heading: Impact, sans-serif;
   }
   
   /* Base styles */
@@ -219,6 +219,3 @@
   .products-wrapper {
     margin-top: 20px;
   }
-  
-  /* Font import for the retro gaming font */
-  @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');

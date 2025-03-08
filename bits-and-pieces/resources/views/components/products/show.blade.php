@@ -1,14 +1,14 @@
 <div>
     <h1>{{ $product->name }}</h1>
-    <p>Platform: {{ $product->console->platform }}</p>
+    <p><b>Platform:</b> {{ $product->console->platform }}</p>
     <p>{{ $product->description }}</p>
-    <p>Color: {{ $product->color }}</p>
-    <p>Connection: {{ $product->connection }}</p>
-    <p>Price: {{ $product->price }}</p>
+    <p><b>Color:</b> {{ $product->color }}</p>
+    <p><b>Connection:</b> {{ $product->connection }}</p>
+    <p><b>Price:</b> {{ $product->price }}</p>
 
     <br> <br>
 
-    <a href="{{ route('products.edit', $product) }}">Edit</a>
+    <a href="{{ route('products.edit', $product) }}" class="btn-primary">Edit</a>
 
     <br> <br>
 

@@ -1,7 +1,7 @@
 <x-layout>
     <x-logo />
     <h1>Products</h1>
-    <a href="{{ route('products.create') }}">New product</a>
+    <a href="{{ route('products.create') }}" class="btn-primary">New product</a>
     <br><br>
 
     <div class="container">
@@ -95,7 +95,7 @@
             @endif
         </div>
 
-        <a href="/logout">Logout</a>
+        <a href="/logout" class="btn-primary">Logout</a>
 
     </div>
 

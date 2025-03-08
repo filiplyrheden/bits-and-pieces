@@ -56,7 +56,7 @@
   }
   
   a:hover {
-    color: var(--primary-dark);
+    color: white;
     text-decoration: underline;
   }
   
@@ -174,24 +174,6 @@
     box-shadow: var(--box-shadow);
     font-style: italic;
     color: #6B7280;
-  }
-  
-  /* Logout link styling */
-  a[href="/logout"] {
-    display: inline-block;
-    margin-top: 30px;
-    padding: 8px 16px;
-    background-color: var(--light);
-    color: var(--dark);
-    border-radius: var(--border-radius);
-    text-decoration: none;
-    font-weight: 500;
-    transition: background-color 0.2s ease;
-  }
-  
-  a[href="/logout"]:hover {
-    background-color: #E5E7EB;
-    text-decoration: none;
   }
   
   /* Responsive adjustments */

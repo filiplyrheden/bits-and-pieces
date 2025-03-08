@@ -56,7 +56,7 @@
   }
   
   a:hover {
-    color: white;
+    color: var(--secondary);
     text-decoration: underline;
   }
   

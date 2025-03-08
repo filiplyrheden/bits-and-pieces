@@ -16,7 +16,7 @@
     <form method="post" action="{{ route('products.destroy', $product) }}">
         @csrf
         @method('DELETE')
-        <button>Delete</button>
+        <button class="btn-delete">Delete</button>
     </form>
     @endif
 

@@ -61,7 +61,7 @@ class ProductController extends Controller
             $query->orderBy('id', 'desc');
         }
 
-        $products = $query->paginate(5)->withQueryString();
+        $products = $query->paginate(6)->withQueryString();
 
         return view('products.index', compact(
             'products',

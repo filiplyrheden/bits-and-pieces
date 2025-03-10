@@ -208,9 +208,11 @@
   }
 
   /* Form Container */
-  form {
+  form,
+  form button.btn-primary {
     margin-left: 25px;
   }
+
 .form-container {
     background-color: white;
     padding: 20px;

@@ -208,6 +208,9 @@
   }
 
   /* Form Container */
+  form {
+    margin-left: 25px;
+  }
 .form-container {
     background-color: white;
     padding: 20px;
@@ -221,7 +224,6 @@
 .form-group {
     display: flex;
     flex-direction: column;
-    margin-bottom: 15px;
 }
 
 /* Labels */
@@ -236,7 +238,6 @@
 .form-group select,
 .form-group textarea {
     padding: 10px;
-    margin: 10px;
     border: 1px solid #D1D5DB;
     border-radius: var(--border-radius);
     background-color: white;

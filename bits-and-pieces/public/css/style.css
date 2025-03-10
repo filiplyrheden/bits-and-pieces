@@ -261,11 +261,11 @@
     resize: vertical;
 }
 
-/* Primary Button */
+/* Buttons */
 .btn-primary {
     display: inline-block;
     padding: 10px 15px;
-    margin-bottom: 40px;
+    margin: 40px 0 40px 0;
     background-color: var(--primary);
     color: white;
     font-weight: 600;
@@ -275,6 +275,8 @@
     transition: background-color 0.2s ease-in-out;
     text-align: center;
     width: 200px;
+    font-size: 16px;
+line-height: 1;
 }
 
 .btn-primary:hover {
@@ -284,6 +286,7 @@
 .btn-delete {
     display: inline-block;
     padding: 10px 15px;
+    margin: 40px 0 40px 0;
     background-color: var(--danger);
     color: white;
     font-weight: 600;
@@ -293,8 +296,26 @@
     transition: background-color 0.2s ease-in-out;
     text-align: center;
     width: 200px;
+    font-size: 16px;
+line-height: 1;
 }
 
 .btn-delete:hover {
     background-color: var(--danger-dark);
+}
+
+/* Product page*/
+.product-page-container {
+  display: flex;
+justify-content: center;
+}
+
+.product-page {
+  width: 50%;
+}
+
+.actions {
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
 }

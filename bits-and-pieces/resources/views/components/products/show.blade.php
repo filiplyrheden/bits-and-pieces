@@ -4,7 +4,7 @@
     <p>{{ $product->description }}</p>
     <p><b>Color:</b> {{ $product->color }}</p>
     <p><b>Connection:</b> {{ ucfirst($product->connection) }}</p>
-    <p><b>Price:</b> {{ $product->price }}</p>
+    <p><b>Price:</b> {{ number_format($product->price, 0) }} kr</p>
 
     <br> <br>
 

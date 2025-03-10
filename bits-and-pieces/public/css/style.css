@@ -322,3 +322,15 @@ justify-content: center;
   flex-direction: row;
   gap: 25px;
 }
+
+.back-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-size: 18px;
+  font-family: Arial, sans-serif;
+  cursor: pointer;
+  gap: 5px;
+  margin-top: 20px;
+}

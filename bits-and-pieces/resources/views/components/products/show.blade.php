@@ -19,5 +19,15 @@
             @endif
         </div>
 
+        <div class="back-button">
+            <a href="{{ route('products.index') }}"><svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="10" stroke="black" stroke-width="2" fill="none" />
+                    <path d="M14 7L9 12L14 17" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg></a>
+            <span>Back</span>
+
+        </div>
+
+
     </article>
 </div>

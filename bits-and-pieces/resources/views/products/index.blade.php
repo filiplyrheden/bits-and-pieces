@@ -85,6 +85,7 @@
                 <div class="product-card">
                     <h2><a href="{{ route('products.show', $product->id) }}">{{ $product->name }}</a></h2>
                     <p>{{ $product->description }}</p>
+                    <p><strong>Connection:</strong> {{ ucfirst($product->connection) }}</p>
                     <p class="price">{{ $product->price }}</p>
                 </div>
                 @endforeach

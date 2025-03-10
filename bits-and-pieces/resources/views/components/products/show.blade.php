@@ -3,7 +3,7 @@
     <p><b>Platform:</b> {{ $product->console->platform }}</p>
     <p>{{ $product->description }}</p>
     <p><b>Color:</b> {{ $product->color }}</p>
-    <p><b>Connection:</b> {{ $product->connection }}</p>
+    <p><b>Connection:</b> {{ ucfirst($product->connection) }}</p>
     <p><b>Price:</b> {{ $product->price }}</p>
 
     <br> <br>

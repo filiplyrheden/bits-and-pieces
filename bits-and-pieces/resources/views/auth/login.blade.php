@@ -3,19 +3,20 @@
 
     <x-errors />
 
-    <div class="form-group">
-        <form method="post" action="/login">
-            @csrf
-            <div>
+    <form method="post" action="/login">
+        @csrf
+        <fieldset>
+            <div class="form-group">
                 <label for="email">Email:</label>
-                <input name="email" id="email" type="email" />
+                <input name="email" id="email" type="email" required autocomplete="email" />
             </div>
-            <div>
+
+            <div class="form-group">
                 <label for="password">Password:</label>
-                <input name="password" id="password" type="password" />
+                <input name="password" id="password" type="password" required autocomplete="current-password" />
             </div>
-            <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+
             <button type="submit" class="btn-primary">Login</button>
-        </form>
-    </div>
+        </fieldset>
+    </form>
 </x-layout>

@@ -8,7 +8,6 @@
 
         <form method="GET" action="{{ url()->current() }}" class="filters">
             <fieldset>
-                <legend>Filter products</legend>
                 <div class="filter-group">
 
                     <div class="filter">

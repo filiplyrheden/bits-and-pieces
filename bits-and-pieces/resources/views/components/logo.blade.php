@@ -22,6 +22,6 @@
 
     <!-- Tagline -->
     <text x="400" y="85" font-family="monospace" font-size="10" fill="#AAAAAA" text-anchor="middle">
-        FOR RAGE QUITTERS SINCE 1982
+        FOR RAGE QUITTERS SINCE 1983
     </text>
 </svg>

@@ -110,6 +110,12 @@
   fieldset {
     border: none;
   }
+
+  .filter-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: -100px; 
+}
   
   /* Product cards styling */
   .product-card {

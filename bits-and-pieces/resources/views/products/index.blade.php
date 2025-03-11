@@ -74,9 +74,11 @@
                     </div>
                 </div>
 
-                <button type="button" onclick="window.location='{{ url()->current() }}'" class="btn-secondary">
-                    Reset Filters
-                </button>
+                <div class="filter-actions">
+                    <button type="button" onclick="window.location='{{ url()->current() }}'" class="btn-secondary">
+                        Reset Filters
+                    </button>
+                </div>
 
                 @foreach(request()->except(['sort_name', 'sort_price', 'manufacturer', 'platform', 'connection', 'color', 'page']) as $key => $value)
                 <input type="hidden" name="{{ $key }}" value="{{ $value }}">

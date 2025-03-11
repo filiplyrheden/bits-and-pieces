@@ -9,6 +9,7 @@ Bits and Pieces is an e-commerce admin tool that helps manage a shop selling ret
 - [Tech Stack](#-tech-stack)
 - [Installation](#-installation)
 - [Usage](#-usage)
+- [Testing](#-testing)
 - [License](#-license)
 
 ---
@@ -75,6 +76,15 @@ Ensure you have the following installed on your system:
 - **Admin Login:** Navigate to `/login` and enter admin credentials (check seeders for default credentials).  
 - **Manage Products:** Add, edit, and remove controllers from inventory.  
 - **View Orders & Users:** Track store activity and customer orders.  
+
+## 🧪 Testing
+
+This project includes automated tests to ensure functionality and stability.
+
+**To execute the test suite, run:**
+```sh
+php artisan test
+```
 
 ## 📜 License
 This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.

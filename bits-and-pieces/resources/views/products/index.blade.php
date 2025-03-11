@@ -74,9 +74,14 @@
                     </div>
                 </div>
 
+                <button type="button" onclick="window.location='{{ url()->current() }}'" class="btn-secondary">
+                    Reset Filters
+                </button>
+
                 @foreach(request()->except(['sort_name', 'sort_price', 'manufacturer', 'platform', 'connection', 'color', 'page']) as $key => $value)
                 <input type="hidden" name="{{ $key }}" value="{{ $value }}">
                 @endforeach
+
             </fieldset>
         </form>
 
@@ -100,7 +105,7 @@
         </div>
 
         <nav>
-            <a href="/logout" class="btn-primary">Logout</a>
+            <a href="/logout" class="btn-secondary">Logout</a>
         </nav>
 
     </main>

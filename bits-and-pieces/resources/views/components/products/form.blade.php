@@ -37,10 +37,12 @@
             </select>
         </div>
 
+        @if(auth()->user() && auth()->user()->isAdmin())
         <div class="form-group">
             <label for="price">Price:</label>
             <input type="number" name="price" id="price" value="{{ old('price', $product->price ?? '') }}">
         </div>
+        @endif
 
     </fieldset>
 

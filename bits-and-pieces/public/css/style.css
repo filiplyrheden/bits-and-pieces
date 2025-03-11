@@ -1,8 +1,9 @@
 /* Retro Game Controllers Admin Theme */
 :root {
-    --primary: #1F1FFF;
-    --primary-dark: #1515be;    
-    --secondary: #EB0000;     
+    --primary: #5252e7;
+    --primary-dark: #3c3ca9;    
+    --secondary: #e15a5a;   
+    --secondary-dark: #843434;   
     --light: #F3F4F6;       
     --dark: #1F2937;           
     --success: #10B981;    
@@ -108,6 +109,11 @@
 
   fieldset {
     border: none;
+  }
+
+  .filter-actions {
+    display: flex;
+    justify-content: center;
   }
   
   /* Product cards styling */
@@ -284,6 +290,27 @@ line-height: 1;
 
 .btn-primary:hover {
     background-color: var(--primary-dark);
+}
+
+.btn-secondary {
+  display: inline-block;
+  padding: 10px 15px;
+  margin: 40px 0 40px 0;
+  background-color: var(--secondary);
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  text-align: center;
+  width: 200px;
+  font-size: 16px;
+line-height: 1;
+}
+
+.btn-secondary:hover {
+  background-color: var(--secondary-dark);
 }
 
 .btn-delete {

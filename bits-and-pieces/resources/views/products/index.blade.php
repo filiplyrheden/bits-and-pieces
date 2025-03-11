@@ -74,9 +74,16 @@
                     </div>
                 </div>
 
+                <div class="filter-actions">
+                    <button type="button" onclick="window.location='{{ url()->current() }}'" class="btn-secondary">
+                        Reset Filters
+                    </button>
+                </div>
+
                 @foreach(request()->except(['sort_name', 'sort_price', 'manufacturer', 'platform', 'connection', 'color', 'page']) as $key => $value)
                 <input type="hidden" name="{{ $key }}" value="{{ $value }}">
                 @endforeach
+
             </fieldset>
         </form>
 
@@ -87,6 +94,7 @@
                 <article class="product-card">
                     <h2><a href="{{ route('products.show', $product->id) }}">{{ $product->name }}</a></h2>
                     <p>{{ $product->description }}</p>
+                    <p><strong>Color:</strong> {{ $product->color }}</p>
                     <p><strong>Connection:</strong> {{ ucfirst($product->connection) }}</p>
                     <p class="price">{{ number_format($product->price, 0) }} kr</p>
                 </article>
@@ -99,7 +107,7 @@
         </div>
 
         <nav>
-            <a href="/logout" class="btn-primary">Logout</a>
+            <a href="/logout" class="btn-secondary">Logout</a>
         </nav>
 
     </main>

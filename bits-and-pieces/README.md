@@ -9,7 +9,7 @@ Bits and Pieces is an e-commerce admin tool that helps manage a shop selling ret
 - [Tech Stack](#-tech-stack)
 - [Installation](#-installation)
 - [Usage](#-usage)
-- [Testing] (#-testing)
+- [Testing](#-testing)
 - [License](#-license)
 
 ---
@@ -81,9 +81,7 @@ Ensure you have the following installed on your system:
 
 This project includes automated tests to ensure functionality and stability.
 
-Running Tests
-
-To execute the test suite, run:
+**To execute the test suite, run:**
 ```sh
 php artisan test
 ```

@@ -87,6 +87,7 @@
                 <article class="product-card">
                     <h2><a href="{{ route('products.show', $product->id) }}">{{ $product->name }}</a></h2>
                     <p>{{ $product->description }}</p>
+                    <p><strong>Color:</strong> {{ $product->color }}</p>
                     <p><strong>Connection:</strong> {{ ucfirst($product->connection) }}</p>
                     <p class="price">{{ number_format($product->price, 0) }} kr</p>
                 </article>

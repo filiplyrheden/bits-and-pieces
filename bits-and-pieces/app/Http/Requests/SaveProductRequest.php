@@ -23,7 +23,7 @@ class SaveProductRequest extends FormRequest
     {
         return [
             'name' => 'required|max:100',
-            'console_id' => 'required|exists:consoles,id', // Make sure console_id exists
+            'console_id' => 'required|exists:consoles,id',
             'description' => 'nullable|min:3',
             'color' => 'required|max:20',
             'connection' => 'required|max:20',
